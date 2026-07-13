@@ -1,0 +1,33 @@
+.site-footer {
+  padding-block: 32px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+.inner a {
+  color: var(--text-faint);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.inner a:hover {
+  color: var(--accent-strong);
+}
+
+.sep {
+  margin-right: auto;
+}
+
+@media (max-width: 560px) {
+  .sep {
+    margin-right: 0;
+  }
+}

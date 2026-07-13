@@ -1,0 +1,108 @@
+:host {
+  display: block;
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--bg);
+}
+
+// ---- schematic dot-grid --------------------------------------------------
+.ambient-grid {
+  position: absolute;
+  inset: -1px;
+  background-image: radial-gradient(rgba(79, 227, 209, 0.16) 1px, transparent 1.4px);
+  background-size: 32px 32px;
+  opacity: 0.3;
+}
+
+// ---- viewport-anchored glows ----------------------------------------------
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+.glow-a {
+  top: -12%;
+  left: -10%;
+  width: 46vw;
+  height: 46vw;
+  max-width: 640px;
+  max-height: 640px;
+  background: radial-gradient(circle, rgba(79, 227, 209, 0.22) 0%, transparent 70%);
+  animation: ambient-drift-a 42s var(--ease-in-out) infinite alternate;
+}
+
+.glow-b {
+  bottom: -16%;
+  right: -12%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(255, 195, 105, 0.13) 0%, transparent 70%);
+  animation: ambient-drift-b 50s var(--ease-in-out) infinite alternate;
+}
+
+.glow-c {
+  top: 36%;
+  left: 34%;
+  width: 34vw;
+  height: 34vw;
+  max-width: 480px;
+  max-height: 480px;
+  background: radial-gradient(circle, rgba(143, 243, 230, 0.1) 0%, transparent 70%);
+  animation: ambient-drift-c 58s var(--ease-in-out) infinite alternate;
+}
+
+@keyframes ambient-drift-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(6%, 8%, 0) scale(1.15); }
+}
+
+@keyframes ambient-drift-b {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-7%, -6%, 0) scale(0.9); }
+}
+
+@keyframes ambient-drift-c {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-8%, 10%, 0) scale(1.1); }
+}
+
+// ---- signal line: a thin traveling pulse down the left margin -------------
+.signal-line {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(79, 227, 209, 0.32) 45%, transparent 90%);
+  background-size: 100% 260%;
+  opacity: 0.55;
+  animation: signal-flow 6.5s linear infinite;
+}
+
+@keyframes signal-flow {
+  0% { background-position: 0 -160%; }
+  100% { background-position: 0 100%; }
+}
+
+@media (max-width: 860px) {
+  .signal-line {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-glow,
+  .signal-line {
+    animation: none;
+  }
+}

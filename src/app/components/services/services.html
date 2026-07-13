@@ -1,0 +1,29 @@
+<section id="services" class="section-divider">
+  <div class="section-inner">
+    <app-section-heading
+      index="06 — Freelance"
+      title="Also open to select freelance work"
+      lead="Alongside full-time roles, I take on a limited amount of freelance work — new marketplace profiles, so no reviews yet. Message me directly and I'll walk through relevant experience."
+    />
+
+    <div class="offer-grid">
+      @for (service of services(); track service.title; let i = $index) {
+        <div class="offer reveal" [appReveal]="i">
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      }
+    </div>
+
+    <div class="marketplaces reveal" [appReveal]="services().length">
+      <span class="mk-label">Find me on</span>
+      <div class="mk-links">
+        @for (m of marketplaces(); track m.platform) {
+          <a [href]="m.href" target="_blank" rel="noopener" class="mk-link">
+            {{ m.platform }} <span>{{ m.handle }}</span>
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+</section>

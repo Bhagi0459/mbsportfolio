@@ -1,0 +1,20 @@
+<section id="insights" class="section-divider">
+  <div class="section-inner">
+    <app-section-heading
+      index="05 — Insights"
+      title="Writing about Angular internals"
+      lead="Short technical breakdowns published on LinkedIn — the kind of thing I reach for on the job."
+    />
+
+    <div class="posts">
+      @for (post of posts(); track post.title; let i = $index) {
+        <a class="post panel reveal" [appReveal]="i" [href]="post.url" target="_blank" rel="noopener">
+          <span class="post-label">{{ post.publishedLabel }}</span>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt }}</p>
+          <span class="post-cta">Read on LinkedIn →</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>

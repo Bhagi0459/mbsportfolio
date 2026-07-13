@@ -1,0 +1,21 @@
+<app-ambient-background />
+
+@if (!booted()) {
+  <app-boot-sequence (complete)="booted.set(true)" />
+}
+
+@if (booted()) {
+  <app-nav />
+  <main>
+    <app-hero />
+    <app-about />
+    <app-experience />
+    <app-skills />
+    <app-projects />
+    <app-insights />
+    <app-services />
+    <app-certifications />
+    <app-contact />
+  </main>
+  <app-site-footer />
+}

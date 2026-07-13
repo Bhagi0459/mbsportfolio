@@ -1,0 +1,291 @@
+/* ============================================================
+   Bhagya Sankar Maddela — Portfolio
+   Design concept: "Signal Field" — a constellation of connected
+   nodes and live pulses, drawn from Angular's own Signals
+   primitive, which is also this developer's core specialisation.
+   Single committed dark world; depth via parallax + glow, not
+   gradients or glass panels.
+   ============================================================ */
+
+// ---- Design tokens ----------------------------------------------------
+:root {
+  // Surfaces
+  --bg: #06070a;
+  --bg-elevated: #0b0d12;
+  --surface: #10131a;
+  --surface-2: #161a23;
+  --border: #1f2430;
+  --border-strong: #2b3140;
+
+  // Text
+  --text: #edeff4;
+  --text-muted: #9199ac;
+  --text-faint: #5b6272;
+
+  // Accent — "signal" cyan + warm secondary, used sparingly
+  --accent: #4fe3d1;
+  --accent-strong: #8ff3e6;
+  --accent-rgb: 79, 227, 209;
+  --accent-2: #ffc369;
+  --accent-2-rgb: 255, 195, 105;
+
+  // Semantic (kept separate from brand accent)
+  --ok: #6fd68a;
+
+  // Type
+  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  // Layout
+  --maxw: 1180px;
+  --gutter: clamp(20px, 5vw, 48px);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  // Motion
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 480ms;
+  --dur-slow: 900ms;
+}
+
+// ---- Reset --------------------------------------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(79, 227, 209, 0.24);
+  color: var(--accent-strong);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+// ---- Layout primitives ---------------------------------------------------
+.section-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  position: relative;
+  padding-block: clamp(72px, 10vw, 140px);
+}
+
+.section-divider {
+  border-top: 1px solid var(--border);
+}
+
+// ---- Reveal-on-scroll (paired with RevealDirective) -----------------------
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// ---- Tilt surface (paired with TiltDirective) -----------------------------
+.tilt-surface {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform var(--dur-fast) var(--ease-out);
+  transform-style: preserve-3d;
+}
+
+// ---- Shared building blocks -----------------------------------------------
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  line-height: 1;
+}
+
+.chip svg {
+  flex-shrink: 0;
+  border-radius: 3px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border: 1px solid transparent;
+  transform: perspective(700px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.btn:hover {
+  transform: perspective(700px) translateY(-3px) scale(1.02) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #04211d;
+}
+
+.btn-primary:hover {
+  background: var(--accent-strong);
+  box-shadow:
+    0 16px 34px -10px rgba(79, 227, 209, 0.6),
+    0 0 0 1px rgba(79, 227, 209, 0.18);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  box-shadow: 0 14px 30px -12px rgba(79, 227, 209, 0.32);
+}
+
+.btn-sm {
+  padding: 0.65rem 1.15rem;
+  font-size: 0.875rem;
+}
+
+.btn-sm:hover {
+  transform: perspective(700px) translateY(-1px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+
+.btn-sm.btn-primary:hover {
+  box-shadow:
+    0 6px 16px -6px rgba(79, 227, 209, 0.5),
+    0 0 0 1px rgba(79, 227, 209, 0.18);
+}
+
+.btn-sm.btn-ghost:hover {
+  box-shadow: 0 6px 14px -8px rgba(79, 227, 209, 0.28);
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

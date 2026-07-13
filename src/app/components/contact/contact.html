@@ -1,0 +1,20 @@
+<section id="contact" class="section-divider">
+  <div class="section-inner">
+    <p class="eyebrow reveal" [appReveal]="0">08 — Contact</p>
+    <h2 class="headline reveal" [appReveal]="1">Let's build something<br />that holds up.</h2>
+    <p class="lead reveal" [appReveal]="2">
+      {{ identity().availability }} — full-time Angular roles, or select freelance work in
+      dashboard development, legacy modernization, and Power BI integration. Reach out directly
+      or through any platform below.
+    </p>
+
+    <div class="links-grid reveal" [appReveal]="3">
+      @for (link of links(); track link.kind) {
+        <a class="link-card" [href]="link.href" [target]="link.kind === 'email' ? null : '_blank'" [rel]="link.kind === 'email' ? null : 'noopener'">
+          <span class="label">{{ link.label }}</span>
+          <span class="value">{{ link.value }}</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>

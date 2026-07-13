@@ -1,0 +1,28 @@
+<section id="about" class="section-divider">
+  <div class="section-inner">
+    <app-section-heading index="01 — About" title="Enterprise front ends that hold up under real usage." />
+
+    <div class="about-grid">
+      <div class="portrait-wrap reveal" [appReveal]="0">
+        <div class="portrait">
+          <img src="/images/dp.jpg" [alt]="identity().name" width="280" height="280" loading="eager" />
+          <span class="portrait-ring"></span>
+        </div>
+        <p class="portrait-caption">{{ identity().location }}</p>
+      </div>
+
+      <div class="about-copy">
+        @for (para of paragraphs(); track $index) {
+          <p class="reveal" [appReveal]="$index + 1">{{ para }}</p>
+        }
+
+        <dl class="facts reveal" [appReveal]="paragraphs().length + 1">
+          <div>
+            <dt>Education</dt>
+            <dd>{{ education().degree }}<br />{{ education().school }} &middot; {{ education().period }}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

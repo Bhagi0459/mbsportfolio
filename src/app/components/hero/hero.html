@@ -1,0 +1,47 @@
+<section id="home" class="hero" [class.ready]="ready()">
+  <div class="hero-aurora" aria-hidden="true">
+    <span class="aurora-blob blob-1"></span>
+    <span class="aurora-blob blob-2"></span>
+    <span class="aurora-blob blob-3"></span>
+  </div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+
+  <div class="section-inner hero-inner">
+    <p class="status-pill seq" style="--seq: 0">
+      <span class="status-dot"></span>
+      {{ identity().availability }}
+    </p>
+
+    <h1 class="seq" style="--seq: 1">
+      <span class="line">{{ identity().name.split(' ').slice(0, 2).join(' ') }}</span>
+      <span class="line">{{ identity().name.split(' ').slice(2).join(' ') }}</span>
+    </h1>
+
+    <p class="role seq" style="--seq: 2">{{ identity().role }}</p>
+    <p class="lead seq" style="--seq: 3">{{ identity().positioning }}</p>
+
+    <div class="actions seq" style="--seq: 4">
+      <a [href]="resumeUrl()" download class="btn btn-primary" appTilt>
+        Download résumé
+        <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true">
+          <path d="M8 2v8m0 0L5 7m3 3l3-3M3 13h10" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <a href="#work" appScrollTo="work" class="btn btn-ghost" appTilt>View my work</a>
+      <a href="#contact" appScrollTo="contact" class="btn btn-ghost" appTilt>Get in touch</a>
+    </div>
+
+    <div class="meta-row seq" style="--seq: 5">
+      <span>{{ identity().yearsExperience }}+ yrs experience</span>
+      <span class="dot">&middot;</span>
+      <span>{{ identity().location }}</span>
+      <span class="dot">&middot;</span>
+      <span>Angular &middot; Power BI &middot; .NET</span>
+    </div>
+  </div>
+
+  <a href="#about" appScrollTo="about" class="scroll-cue seq" style="--seq: 6" aria-label="Scroll to About section">
+    <span class="scroll-cue-line"></span>
+    <span>Scroll</span>
+  </a>
+</section>

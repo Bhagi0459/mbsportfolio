@@ -1,0 +1,23 @@
+<div class="boot" role="status" aria-live="polite">
+  <div class="stage" [class.static]="reduceMotion">
+    <div class="sphere">
+      @for (node of nodes; track $index) {
+        <span class="node" [style.transform]="node.transform" [style.width.px]="node.size" [style.height.px]="node.size"></span>
+      }
+    </div>
+    <div class="core" aria-hidden="true"></div>
+  </div>
+
+  <div class="boot-info">
+    <p class="app-name">bhagya&#8203;sankar<span>.dev</span></p>
+    <p class="message">{{ message() }}</p>
+
+    <div class="bar-track">
+      <div class="bar-fill" [style.width.%]="progress()"></div>
+    </div>
+    <div class="bar-meta">
+      <span>{{ progress() }}%</span>
+      <span class="skip-hint">Press any key to skip</span>
+    </div>
+  </div>
+</div>

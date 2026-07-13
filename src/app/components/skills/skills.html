@@ -1,0 +1,22 @@
+<section id="skills" class="section-divider">
+  <div class="section-inner">
+    <app-section-heading
+      index="03 — Skills"
+      title="Stack"
+      lead="Grouped by what each tool is actually for. Node size reflects day-to-day weight, not a fake percentage."
+    />
+
+    <div class="groups">
+      @for (group of groups(); track group.id; let gi = $index) {
+        <article class="group panel reveal" [appReveal]="gi" appTilt>
+          <h3>{{ group.title }}</h3>
+          <div class="items">
+            @for (item of group.items; track item.name) {
+              <span class="node" [style.--w]="item.weight"><app-tech-icon [name]="item.name" />{{ item.name }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
