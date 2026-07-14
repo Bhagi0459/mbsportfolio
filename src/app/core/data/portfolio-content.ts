@@ -256,36 +256,50 @@ export const INSIGHTS: readonly InsightPost[] = [
     title: 'Why Lazy Loading Makes Angular Apps Faster',
     excerpt:
       'Angular Performance Series #2 — loading only what the user needs first, and deferring the rest until they navigate there.',
-    url: 'https://www.linkedin.com/in/bhagyasankarmaddela',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-angularperformance-lazyloading-activity-7480919236702322689-FRw6/',
     publishedLabel: 'Angular Performance Series',
   },
   {
     title: 'Why OnPush Change Detection Makes Angular Faster',
     excerpt:
       'Angular Performance Series #1 — checking a component only when something it actually depends on changes.',
-    url: 'https://www.linkedin.com/in/bhagyasankarmaddela',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-angularperformance-typescript-activity-7479768776474030081-yVLI/',
     publishedLabel: 'Angular Performance Series',
   },
   {
     title: 'Why trackBy Can Make Your Angular App Faster',
     excerpt:
       'Identifying list items by a stable key so Angular updates only what changed, instead of recreating the DOM.',
-    url: 'https://www.linkedin.com/in/bhagyasankarmaddela',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-typescript-frontenddevelopment-activity-7478328435879100416-PuJa/',
     publishedLabel: 'Angular internals',
   },
   {
     title: 'Why is switchMap() a Superhero for Search APIs?',
     excerpt:
       'Cancelling stale requests as new ones come in, so a fast typist never sees an out-of-order search result.',
-    url: 'https://www.linkedin.com/in/bhagyasankarmaddela',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-rxjs-typescript-activity-7477242287027302400-VffX/',
     publishedLabel: 'RxJS',
   },
   {
     title: 'Subject vs BehaviorSubject',
     excerpt:
       'The practical difference between the two, and when each one is the right choice for shared state.',
-    url: 'https://www.linkedin.com/in/bhagyasankarmaddela',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-rxjs-typescript-activity-7475135656743292928-QlHh/',
     publishedLabel: 'RxJS',
+  },
+  {
+    title: 'Standalone Components vs NgModules',
+    excerpt:
+      'Less boilerplate and simpler structure for new projects — while NgModules stay a completely valid choice for existing enterprise codebases.',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-angulardeveloper-frontenddevelopment-activity-7474320511829864448-Mi4-/',
+    publishedLabel: 'Angular Architecture',
+  },
+  {
+    title: 'Angular Signals vs RxJS: Do We Still Need RxJS?',
+    excerpt:
+      'Signals own local state and UI reactivity; RxJS still owns async streams and request cancellation — they complement each other rather than compete.',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-typescript-rxjs-activity-7473634082208358400-c2Ls/',
+    publishedLabel: 'Signals',
   },
 ];
 
