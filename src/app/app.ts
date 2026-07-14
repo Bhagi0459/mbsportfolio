@@ -13,6 +13,16 @@ import { Certifications } from './components/certifications/certifications';
 import { Contact } from './components/contact/contact';
 import { SiteFooter } from './components/footer/site-footer';
 
+const BOOT_SEEN_KEY = 'boot-seen';
+
+function hasSeenBootThisSession(): boolean {
+  try {
+    return sessionStorage.getItem(BOOT_SEEN_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -36,6 +46,16 @@ import { SiteFooter } from './components/footer/site-footer';
   styleUrl: './app.scss',
 })
 export class App {
-  /** Gates the real site behind the boot sequence — set true once it completes/is skipped. */
-  readonly booted = signal(false);
+  /** Gates the real site behind the boot sequence — set true once it completes/is skipped.
+   *  Starts already-booted if this tab's session has already seen it once. */
+  readonly booted = signal(hasSeenBootThisSession());
+
+  onBootComplete(): void {
+    try {
+      sessionStorage.setItem(BOOT_SEEN_KEY, '1');
+    } catch {
+      // Storage unavailable (e.g. private browsing) — just proceed without persisting.
+    }
+    this.booted.set(true);
+  }
 }

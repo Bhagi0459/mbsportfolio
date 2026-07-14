@@ -1,7 +1,7 @@
 <app-ambient-background />
 
 @if (!booted()) {
-  <app-boot-sequence (complete)="booted.set(true)" />
+  <app-boot-sequence (complete)="onBootComplete()" />
 }
 
 @if (booted()) {
