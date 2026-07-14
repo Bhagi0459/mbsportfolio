@@ -246,6 +246,13 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
 /** Real posts, verbatim titles from LinkedIn — no engagement metrics shown since not independently verifiable at build time. */
 export const INSIGHTS: readonly InsightPost[] = [
   {
+    title: 'Async Pipe vs Manual Subscription: Who Handles the Cleanup?',
+    excerpt:
+      'Angular Performance Series #3 — letting the async pipe own template subscriptions, and when manually subscribing with proper lifecycle management is the right call.',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-angularperformance-rxjs-share-7482661017030762496-UZkA/',
+    publishedLabel: 'Angular Performance Series',
+  },
+  {
     title: 'Why Lazy Loading Makes Angular Apps Faster',
     excerpt:
       'Angular Performance Series #2 — loading only what the user needs first, and deferring the rest until they navigate there.',
@@ -298,6 +305,7 @@ export const MARKETPLACE_PROFILES: readonly MarketplaceProfile[] = [
 ];
 
 export const CERTIFICATIONS: readonly Certification[] = [
+  { name: 'What Is Scrum?', issuer: 'LinkedIn Learning', period: 'Jul 2026' },
   { name: 'Agile Foundations', issuer: 'LinkedIn Learning', period: 'Jul 2026' },
   { name: 'SQL Practice: Basic Queries', issuer: 'LinkedIn Learning', period: 'Jun 2026' },
   { name: 'Generative AI Foundations Certificate Program', issuer: 'upGrad', period: 'Sep 2025' },
