@@ -15,6 +15,9 @@ const ICON_KEYS: Readonly<Record<string, string>> = {
   '.net api': 'dotnet',
   '.net rest api': 'dotnet',
   '.net rest apis': 'dotnet',
+  'asp.net core': 'dotnet',
+  postgresql: 'postgresql',
+  docker: 'docker',
   primeng: 'primeng',
   react: 'react',
   'next.js': 'nextjs',
@@ -166,6 +169,18 @@ const ICON_KEYS: Readonly<Record<string, string>> = {
         <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
           <circle cx="12" cy="12" r="11" fill="#FF6C37" />
           <text x="12" y="16.5" text-anchor="middle" font-size="11" font-weight="700" font-family="Arial, sans-serif" fill="#fff">P</text>
+        </svg>
+      }
+      @case ('postgresql') {
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+          <rect width="24" height="24" rx="4" fill="#336791" />
+          <text x="12" y="16" text-anchor="middle" font-size="9" font-weight="700" font-family="Arial, sans-serif" fill="#fff">Pg</text>
+        </svg>
+      }
+      @case ('docker') {
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+          <rect width="24" height="24" rx="4" fill="#2496ED" />
+          <text x="12" y="16.5" text-anchor="middle" font-size="12" font-weight="700" font-family="Arial, sans-serif" fill="#fff">D</text>
         </svg>
       }
     }

@@ -3,54 +3,79 @@
     <app-section-heading
       index="04 — Work"
       title="Selected work"
-      lead="One shipped end to end, the rest built inside enterprise codebases for US healthcare, financial-services, and administration clients."
+      lead="Two shipped end to end, the rest built inside enterprise codebases for US healthcare, financial-services, and administration clients."
     />
 
-    <!-- Featured: Nimbus AI -->
-    <article class="feature reveal" [appReveal]="0">
-      <div class="feature-copy">
-        <span class="kicker">{{ featured().kind }} &middot; {{ featured().status }}</span>
-        <h3>{{ featured().title }}</h3>
-        <p class="tagline">{{ featured().tagline }}</p>
-        <p class="problem">{{ featured().problem }}</p>
-        <p class="contribution">{{ featured().contribution }}</p>
-        <div class="stack-row">
-          @for (s of featured().stack; track s) {
-            <span class="chip"><app-tech-icon [name]="s" />{{ s }}</span>
-          }
+    <!-- Featured: personal projects shipped end to end -->
+    @for (project of featuredList(); track project.id; let i = $index) {
+      <article class="feature reveal" [appReveal]="i">
+        <div class="feature-copy">
+          <span class="kicker">{{ project.kind }} &middot; {{ project.status }}</span>
+          <h3>{{ project.title }}</h3>
+          <p class="tagline">{{ project.tagline }}</p>
+          <p class="problem">{{ project.problem }}</p>
+          <p class="contribution">{{ project.contribution }}</p>
+          <div class="stack-row">
+            @for (s of project.stack; track s) {
+              <span class="chip"><app-tech-icon [name]="s" />{{ s }}</span>
+            }
+          </div>
+          <div class="links">
+            @for (link of project.links; track link.href) {
+              <a [href]="link.href" target="_blank" rel="noopener" class="btn btn-primary btn-sm" appTilt>{{ link.label }} →</a>
+            }
+          </div>
         </div>
-        <div class="links">
-          @for (link of featured().links; track link.href) {
-            <a [href]="link.href" target="_blank" rel="noopener" class="btn btn-primary btn-sm" appTilt>{{ link.label }} →</a>
-          }
-        </div>
-      </div>
 
-      <div class="feature-visual panel" appTilt>
-        <div class="panel-head">
-          <span class="pdot"></span><span class="pdot"></span><span class="pdot"></span>
-          <span class="ptitle">nimbus-ai-phi.vercel.app</span>
-        </div>
-        <div class="mock">
-          <div class="mock-search">Search city…</div>
-          <div class="mock-main">
-            <div class="mock-temp">
-              <span class="deg">37.3°C</span>
-              <span class="city">Tenali · Partly cloudy</span>
+        <div class="feature-visual panel" appTilt>
+          @if (project.id === 'nimbus-ai') {
+            <div class="panel-head">
+              <span class="pdot"></span><span class="pdot"></span><span class="pdot"></span>
+              <span class="ptitle">nimbus-ai-phi.vercel.app</span>
             </div>
-            <svg class="mock-trend" viewBox="0 0 220 60" preserveAspectRatio="none" aria-hidden="true">
-              <polyline points="0,15 30,20 60,28 90,34 120,40 150,44 180,48 220,52" fill="none" stroke="var(--accent)" stroke-width="2" />
-            </svg>
-          </div>
-          <div class="mock-tiles">
-            <div class="mock-tile"><span>HUMIDITY</span><b>37%</b></div>
-            <div class="mock-tile"><span>WIND</span><b>25.2 km/h</b></div>
-            <div class="mock-tile"><span>UV INDEX</span><b>6.9</b></div>
-            <div class="mock-tile"><span>PRESSURE</span><b>1001 mb</b></div>
-          </div>
+            <div class="mock">
+              <div class="mock-search">Search city…</div>
+              <div class="mock-main">
+                <div class="mock-temp">
+                  <span class="deg">37.3°C</span>
+                  <span class="city">Tenali · Partly cloudy</span>
+                </div>
+                <svg class="mock-trend" viewBox="0 0 220 60" preserveAspectRatio="none" aria-hidden="true">
+                  <polyline points="0,15 30,20 60,28 90,34 120,40 150,44 180,48 220,52" fill="none" stroke="var(--accent)" stroke-width="2" />
+                </svg>
+              </div>
+              <div class="mock-tiles">
+                <div class="mock-tile"><span>HUMIDITY</span><b>37%</b></div>
+                <div class="mock-tile"><span>WIND</span><b>25.2 km/h</b></div>
+                <div class="mock-tile"><span>UV INDEX</span><b>6.9</b></div>
+                <div class="mock-tile"><span>PRESSURE</span><b>1001 mb</b></div>
+              </div>
+            </div>
+          } @else if (project.id === 'careerpilot') {
+            <div class="panel-head">
+              <span class="pdot"></span><span class="pdot"></span><span class="pdot"></span>
+              <span class="ptitle">career-pilot-brown.vercel.app</span>
+            </div>
+            <div class="mock">
+              <div class="mock-donut-row">
+                <div class="donut" aria-hidden="true"></div>
+                <ul class="legend">
+                  <li><span class="legend-dot" style="background: var(--accent)"></span>Applied</li>
+                  <li><span class="legend-dot" style="background: var(--accent-2)"></span>Interviewing</li>
+                  <li><span class="legend-dot" style="background: var(--accent-strong)"></span>Offer</li>
+                  <li><span class="legend-dot" style="background: var(--border-strong)"></span>Closed</li>
+                </ul>
+              </div>
+              <div class="mock-tiles mock-tiles-3">
+                <div class="mock-tile"><span>APPLICATIONS</span><b>24</b></div>
+                <div class="mock-tile"><span>INTERVIEWS</span><b>6</b></div>
+                <div class="mock-tile"><span>OFFERS</span><b>2</b></div>
+              </div>
+            </div>
+          }
         </div>
-      </div>
-    </article>
+      </article>
+    }
 
     <!-- Enterprise case studies -->
     <div class="grid">

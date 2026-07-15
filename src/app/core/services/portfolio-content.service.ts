@@ -26,7 +26,7 @@ export class PortfolioContentService {
   readonly experience = signal(EXPERIENCE).asReadonly();
   readonly skillGroups = signal(SKILL_GROUPS).asReadonly();
   readonly caseStudies = signal(CASE_STUDIES).asReadonly();
-  readonly featuredCaseStudy = signal(CASE_STUDIES.find((c) => c.featured) ?? CASE_STUDIES[0]).asReadonly();
+  readonly featuredCaseStudies = signal(CASE_STUDIES.filter((c) => c.featured)).asReadonly();
   readonly otherCaseStudies = signal(CASE_STUDIES.filter((c) => !c.featured)).asReadonly();
   readonly insights = signal(INSIGHTS).asReadonly();
   readonly services = signal(SERVICES).asReadonly();

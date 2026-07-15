@@ -15,7 +15,7 @@ import { TechIcon } from '../../shared/components/tech-icon/tech-icon';
 })
 export class Projects {
   private readonly content = inject(PortfolioContentService);
-  readonly featured = this.content.featuredCaseStudy;
+  readonly featuredList = this.content.featuredCaseStudies;
   readonly others = this.content.otherCaseStudies;
 
   readonly openId = signal<string | null>(null);

@@ -23,7 +23,7 @@ export const IDENTITY = {
 export const ABOUT_PARAGRAPHS: readonly string[] = [
   "I'm a Senior Angular Developer with 5+ years building enterprise web applications across US healthcare, financial-services, and business administration organizations. My core strength is Angular — including Signals and Standalone Components — paired with TypeScript, RxJS, and Angular Material/PrimeNG for polished, data-heavy interfaces.",
   'Recent work includes large Electronic Medical Record (EMR) modules, metadata-driven dynamic form builders that render forms and validation logic directly from database configuration, and Power BI dashboards embedded inside Angular applications. I also work directly against .NET REST APIs and SQL Server, and have migrated legacy .NET and VB-based interfaces to modern Angular.',
-  'Outside of client work, I ship personal projects end to end — see Nimbus AI below — and write about the Angular internals I use day to day.',
+  'Outside of client work, I ship personal projects end to end — see Nimbus AI and CareerPilot below — and write about the Angular internals I use day to day.',
 ];
 
 export const EXPERIENCE: readonly ExperienceEntry[] = [
@@ -136,6 +136,23 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
     links: [
       { label: 'Live demo', href: 'https://nimbus-ai-phi.vercel.app/' },
       { label: 'Source', href: 'https://github.com/Bhagi0459/nimbus-ai' },
+    ],
+    featured: true,
+  },
+  {
+    id: 'careerpilot',
+    title: 'CareerPilot',
+    tagline: 'Full-stack job application tracking platform',
+    kind: 'Personal project',
+    status: 'Live',
+    problem:
+      'Job seekers often track applications, recruiters, and interview stages across scattered spreadsheets and notes, with no single, secure place to see progress at a glance.',
+    contribution:
+      'Designed and built a full-stack platform end to end: an Angular 19 frontend (Standalone Components, Signals, computed state, an RxJS-driven search pipeline) talking to an ASP.NET Core .NET 10 REST API secured with JWT authentication, backed by PostgreSQL via EF Core. Shipped with a secure password-reset token architecture, a Dockerized API, and 39 automated frontend/backend tests, deployed across Vercel, Render, and Neon.',
+    stack: ['Angular 19', 'Signals', 'RxJS', 'ASP.NET Core', 'PostgreSQL', 'EF Core', 'Docker', 'JWT Auth'],
+    links: [
+      { label: 'Live demo', href: 'https://career-pilot-brown.vercel.app/' },
+      { label: 'Source', href: 'https://github.com/Bhagi0459/career-pilot' },
     ],
     featured: true,
   },
