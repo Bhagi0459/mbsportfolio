@@ -263,6 +263,13 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
 /** Real posts, verbatim titles from LinkedIn — no engagement metrics shown since not independently verifiable at build time. */
 export const INSIGHTS: readonly InsightPost[] = [
   {
+    title: 'Why Pure Pipes Are Better Than Calling Functions in Templates',
+    excerpt:
+      'Angular Performance Series #4 — reusing a pipe\'s cached result instead of recalculating an expensive function on every change detection cycle.',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-angularperformance-typescript-share-7483740844492066816--cLX/',
+    publishedLabel: 'Angular Performance Series',
+  },
+  {
     title: 'Async Pipe vs Manual Subscription: Who Handles the Cleanup?',
     excerpt:
       'Angular Performance Series #3 — letting the async pipe own template subscriptions, and when manually subscribing with proper lifecycle management is the right call.',
