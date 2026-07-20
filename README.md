@@ -1,59 +1,60 @@
-# PortfolioNg
+# MBS Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.31.
+Personal portfolio site for Bhagya Sankar Maddela, Senior Angular Developer — experience, projects, skills, and technical writing in one place.
 
-## Development server
+**Live site:** [mbs-portfolio-app.vercel.app](https://mbs-portfolio-app.vercel.app/)
 
-To start a local development server, run:
+Deployed on **Vercel**.
 
-```bash
-ng serve
+## Sections
+
+- **Hero** — intro, with a boot-sequence intro animation on first visit
+- **About** — background and education
+- **Experience** — work history
+- **Skills** — grouped tech stack
+- **Projects** — featured personal and enterprise work
+- **Insights** — Angular Performance Series and other technical posts, sourced from LinkedIn
+- **Services** — freelance offerings
+- **Certifications**
+- **Contact**
+
+## Tech stack
+
+- Angular 20 — Standalone Components, single-page component composition
+- RxJS
+
+## Project structure
+
+```
+src/app/
+  core/
+    data/          # portfolio content (experience, projects, insights, etc.)
+    models/        # TypeScript interfaces
+    services/      # app services
+  components/       # hero, about, experience, skills, projects, insights, services, certifications, contact, nav, footer, boot, ambient-background
+  shared/
+    components/
+    directives/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+All portfolio content — experience, projects, and Insight posts (each linking to its original LinkedIn post) — lives in `src/app/core/data/portfolio-content.ts`.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Getting started
 
 ```bash
-ng generate component component-name
+npm install
+npm start        # ng serve, http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Scripts
 
-```bash
-ng generate --help
-```
+| Command | Description |
+| --- | --- |
+| `npm start` | Run the Angular dev server |
+| `npm run build` | Production build to `dist/` |
+| `npm run watch` | Incremental dev build |
+| `npm test` | Run unit tests (Karma/Jasmine) |
 
-## Building
+## Deployment
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Deployed on Vercel as the `portfolio-ng` project.
