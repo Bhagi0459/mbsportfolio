@@ -263,6 +263,13 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
 /** Real posts, verbatim titles from LinkedIn — no engagement metrics shown since not independently verifiable at build time. */
 export const INSIGHTS: readonly InsightPost[] = [
   {
+    title: 'Why Signals Make Angular Apps Faster',
+    excerpt:
+      'Angular Performance Series #5 — notifying only the components that depend on an updated Signal, instead of triggering change detection across the whole tree.',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-angularperformance-signals-share-7484832285725478912-J-GK/',
+    publishedLabel: 'Angular Performance Series',
+  },
+  {
     title: 'Why Pure Pipes Are Better Than Calling Functions in Templates',
     excerpt:
       'Angular Performance Series #4 — reusing a pipe\'s cached result instead of recalculating an expensive function on every change detection cycle.',
