@@ -263,6 +263,13 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
 /** Real posts, verbatim titles from LinkedIn — no engagement metrics shown since not independently verifiable at build time. */
 export const INSIGHTS: readonly InsightPost[] = [
   {
+    title: '7 Techniques for Faster Angular Apps',
+    excerpt:
+      'Angular Performance Series #6 — closing out the series: OnPush, lazy loading, the async pipe, pure pipes, Signals, trackBy, and debounceTime + switchMap, tied together with one idea: performance is many small habits, not one big fix.',
+    url: 'https://www.linkedin.com/posts/bhagyasankarmaddela_angular-angularperformance-typescript-share-7485917440774868992-fyyU/',
+    publishedLabel: 'Angular Performance Series',
+  },
+  {
     title: 'Why Signals Make Angular Apps Faster',
     excerpt:
       'Angular Performance Series #5 — notifying only the components that depend on an updated Signal, instead of triggering change detection across the whole tree.',
